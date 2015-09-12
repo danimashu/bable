@@ -1,0 +1,10 @@
+AllCops:
+  RunRailsCops: false
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+
+Style/Documentation:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
