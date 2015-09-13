@@ -1,5 +1,7 @@
 module Bable
   module Index
+    # This class is responsible of calculating the Coleman-Liau Index. Check
+    # https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index for knowing more.
     class ColemanLiau < Base
       def calc
         (0.0588 * average_chars_per_100_words -

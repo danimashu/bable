@@ -3,6 +3,9 @@ module Bable
     class << self
       EXCLUDED_INDEXES = [:base]
 
+      # List the implemented readability indexes.
+      #
+      # @return [Array<Symbol>] list of indexes in underscored format.
       def available_indexes
         indexes = constants.select { |c| const_get(c).is_a?(Class) }
         indexes.map!    { |c| c.to_s.underscore.to_sym }
