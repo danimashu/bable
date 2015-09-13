@@ -6,16 +6,10 @@ describe Bable::Index do
   end
 
   describe ".available_indexes" do
-    it "returns an array" do
-      expect(described_class.available_indexes).to be_a(Array)
-    end
-
-    it "contains the existing index as a symbol" do
-      expect(described_class.available_indexes).to include(:fake_index)
-    end
-
-    it "doesn't contain the excluded indexes (base)" do
-      expect(described_class.available_indexes).not_to include(:base)
+    it "returns a list of indexes" do
+      expect(described_class.available_indexes).to eq([:ari,
+                                                       :coleman_liau,
+                                                       :fake_index])
     end
   end
 
