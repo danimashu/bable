@@ -5,7 +5,7 @@
 
 # Bable: Text readability indexes calculator
 
-Bable is a library that will allow you calculate quantitative readability indexes of a given text. Read more about readability tests here: [](https://en.wikipedia.org/wiki/Readability_test).
+Bable is a library that will allow you calculate quantitative readability indexes of a given text. Read more about readability tests here: [https://en.wikipedia.org/wiki/Readability_test](https://en.wikipedia.org/wiki/Readability_test).
 
 Besides calculating indexes (currently available: `Automated Readability Index` and `Coleman-Liau index`), it will help you build your own index calculator, giving you the structure and the helper methods for making the process smoother.
 
@@ -48,9 +48,10 @@ index.calc # => 7.72
 
 ## Implement your own index
 
-If you want to implement your own index you just need to create a subclass of `Bable::Index::Base` and define a method `#calc` in it, where you'll calculate the actual formula. Note that instances of `Bable::Index::Base` will come with a `#text` attribute reader, which returns a decorator of `String`, the class `StatisticString` (see [lib/bable/statistic_string.rb](lib/bable/statistic_string.rb) ). You can take advantage of all those methods for implement your index.
+If you want to implement your own index you just need to create a subclass of `Bable::Index::Base` and define a method `#calc` in it, where you'll calculate the actual formula. Note that instances of `Bable::Index::Base` will come with a `#text` attribute reader, which returns a decorator of `String`, the class `StatisticString` (look at [http://www.rubydoc.info/github/danimashu/bable/master/Bable/StatisticString](http://www.rubydoc.info/github/danimashu/bable/master/Bable/StatisticString)). You can take advantage of all those methods when implementing your own index.
 
 ```ruby
+# Your index
 module Bable
   module Index
     class MyNewIndex < Base
