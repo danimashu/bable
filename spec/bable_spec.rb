@@ -6,12 +6,12 @@ describe Bable do
   end
 
   describe ".index" do
-    it "instantiate the default index if no args" do
+    it "instantiates the default index if no args" do
       index = described_class.index(fake_text)
       expect(index).to be_a(Bable::Index::ColemanLiau)
     end
 
-    it "instantiate the given index when args" do
+    it "instantiates the given index when args" do
       index = described_class.index(fake_text, index: :ari)
       expect(index).to be_a(Bable::Index::Ari)
     end
