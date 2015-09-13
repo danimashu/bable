@@ -4,7 +4,7 @@ AllCops:
   DisplayCopNames: true
 
 Style/Documentation:
-  Enabled: true
+  Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

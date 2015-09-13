@@ -26,5 +26,9 @@ module Bable
     def average_word_length
       characters_count / words_count.to_f
     end
+
+    def average_sentence_length
+      characters_count / sentences_count.to_f
+    end
   end
 end

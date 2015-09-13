@@ -1,8 +1,7 @@
 require "spec_helper"
 
 describe Bable::StatisticString do
-  let(:text)   { "Fake text.\nReally?Yes!" }
-  let(:string) { Bable::StatisticString.new(text) }
+  let(:string) { Bable::StatisticString.new(fake_text) }
 
   describe "#words" do
     it "splits the text returning a list of words" do
@@ -37,6 +36,12 @@ describe Bable::StatisticString do
   describe "#average_word_length" do
     it "calculates the average word's chars length" do
       expect(string.average_word_length).to eq(4.25)
+    end
+  end
+
+  describe "#average_sentence_length" do
+    it "calculates the average sentence's chars length" do
+      expect(string.average_sentence_length).to eq(17 / 3.0)
     end
   end
 end
