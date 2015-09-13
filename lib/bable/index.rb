@@ -15,11 +15,8 @@ module Bable
       def target_class(index)
         camelized_class = index.to_s.camelize
 
-        if const_defined?(camelized_class)
-          const_get(index.to_s.camelize)
-        else
-          fail NotExistingIndexError
-        end
+        fail NotExistingIndexError unless const_defined?(camelized_class)
+        const_get(camelized_class)
       end
     end
 
