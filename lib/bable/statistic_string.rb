@@ -1,3 +1,5 @@
+require "delegate"
+
 module Bable
   class StatisticString < SimpleDelegator
     WORD_REGEX     = /\w+/
