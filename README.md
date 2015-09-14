@@ -48,10 +48,24 @@ index.calc # => 7.72
 
 ## Implement your own index
 
-If you want to implement your own index you just need to create a subclass of `Bable::Index::Base` and define a method `#calc` in it, where you'll calculate the actual formula. Note that instances of `Bable::Index::Base` will come with a `#text` attribute reader, which returns a decorator of `String`, the class `StatisticString` (look at [http://www.rubydoc.info/github/danimashu/bable/master/Bable/StatisticString](http://www.rubydoc.info/github/danimashu/bable/master/Bable/StatisticString)). You can take advantage of all those methods when implementing your own index.
+If you want to implement your own index you just need to create a subclass of `Bable::Index::Base` and define a method `#calc` on it, where you'll calculate the actual formula. Note that instances of `Bable::Index::Base` will come with a `#text` attribute reader, which returns a decorator of `String`, the class `StatisticString` (look at [the documentation](http://www.rubydoc.info/github/danimashu/bable/master/Bable/StatisticString)). You can take advantage of all those methods when implementing your own index.
 
 ```ruby
-# Your index
+# A class defined in your application (i.e. in the /lib folder on a Rails app)
+class MyNewIndex < Bable::Index::Base
+  def calc
+    # Define your formula here.
+  end
+end
+
+# Then use it
+MyNewIndex.new("text").calc
+```
+
+Alternatively, although it’s not completely recommended, you could open the library modules itself, and add the new index directly there.
+
+```ruby
+# A class defined in your application (i.e. in the /lib folder on a Rails app)
 module Bable
   module Index
     class MyNewIndex < Base
@@ -65,6 +79,11 @@ end
 # Then use it
 Bable.index("text", index: :my_new_index).calc
 ```
+
+Finally, if you think your index could potentially be useful for other people, please add it directly to the gem via pull-request (follow the rules below).
+
+You can take a look at how the current indexes were [implemented](lib/bable/index/ari.rb) and [tested](spec/bable/index/ari_spec.rb).
+
 
 ## Contributing
 
