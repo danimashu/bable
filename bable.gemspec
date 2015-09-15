@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 2.0.0"
 
-  s.add_runtime_dependency "activesupport", "~> 4.2.4"
+  s.add_runtime_dependency "activesupport", ">= 3.0.0"
 
   s.add_development_dependency "bundler", "~> 1.10"
   s.add_development_dependency "pry",     "~> 0.10"
